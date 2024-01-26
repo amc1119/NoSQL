@@ -12,37 +12,55 @@
 5. Assigned to `establishments` collection to the variable 'establishments'
 
 ## Update the Database
-1. Found the most recent date in the dataset.
+1. Inserted supplied data for "Penang Flavours" restaurant into the `establishments` collection.
 
-2. Utilized AskBCS to create a query to obtain the previous 12 months of precipitation data.
+2. Performed a query to find the "Restaurant/Cafe/Canteen" 'BusinessTypeID', returning only the 'BusinessTypeID' and the 'BusinessType'.
 
-3. Selected only the 'date' and 'prcp' values, loaded the query results into a Pandas DataFrame, and explicitly set the column names.
+3. Performed queries to delete all documents where the 'LocalAuthorityName' is "Dover" then checked make sure they were, if fact, deleted - using the count_documents() method.
 
-4. Utilized AskBCS properly format the plot method to show the results. 
+4. Converted the latitude and longitude fields from strings to decimal numbers and the 'RatingValue' to integers - both using the update_many() method. 
 
-5. Calculated and printed the summary statistics.
+## Exploratory Analysis
+* Question 1
+1. Created a query to find the establishments with a hygience score of 20.
 
-## Station Analysis
-1. Created a query to calculate the total number of stations in the dataset.
+2. Listed the number of documents in the query using the count_documents() method.
 
-2. Created a query to find the most active stations, then listed them in order, and displayed the station with the greatest number of observations.
+3. Printed the first result - using pprint.
 
-3. Created a query to calculate the lowest, highest, and average temperatures of the most active station.
+4. Converted the results to a Pandas DataFrame, displaying only the first 10 rows.
 
-4. Created a query to get the previous temperature observatio (TOBS) data.
+* Question 2
+1. Created a query to find the establishments in London with a RatingValue >= 4.
 
-5. closed the session.
+2. Used the '$regex' operator to obtain the London establishments and the count_documents() method to list the number of documents.
+ 
+3. Printed the first result - using pprint.
 
-# Designing the Climate App
-* Designed a Flask API based on queries to:
-1. Start at the homepage and list all available routes.
+4. Converted the results to a Pandas DataFrame, displaying only the first 10 rows.
 
-2. Convert the results from the precipitation analysis into a dictionary using the 'date' and 'prcp' as the key:value pair.
+* Question 3
+1. Created a query to find the establishments within 0.01 degree of "Penang Flavours" and with a RatingValue of 5.
 
-3. Return a JSON list of the stations in the dataset.
+2. Sorted the values in ascending order on the hygiene score using the sort() method. 
 
-4. Obtain the dates and temperature observations of the most active station for the previous year of data and return a JSON list of those temperature observations.
+3. Used the limit() method to limit the results to 5.
 
-5. Worked with a tutor to return a JSON list of minimum, average, annd maximum temperatures for a specific start or start-end range.
-* Values calculated for specified start - for all dates greater than or equal to the start date.
-* Values calculated for specified start and end dates - for all dates from start date to end date, inclusive.
+4. Printed the first five results - using pprint.
+
+5. Converted the results to a Pandas DataFrame.
+
+* Question 4
+1. Worked with a tutor to create an aggregation pipeline to include a match, query, and sort.
+
+2. Set the match query to include documents with a hygience score of zero.
+
+3. Set the group step to group on the 'LocalAuthorityName' and count the number of documents.
+
+4. Set the sort step to sort the count of the documents in descending order.
+
+5. Used the aggregate() method and cast the aggregation query as a list saved to the "results" variable.
+
+6. Printed the first 10 results - using pprint.
+
+7. Converted the results to a Pandas DataFrame, displaying only the first 10 rows.
