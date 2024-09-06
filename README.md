@@ -1,4 +1,4 @@
-# nosql-challenge
+# NoSQL
 
 # Database and Jupyter Notebook Set Up
 1. Created a databse named `uk_food` and a collection `establishments` by importing the data provided in `establishments.json.`
